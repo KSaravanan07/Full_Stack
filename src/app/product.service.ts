@@ -18,7 +18,7 @@ export class ProductService {
   }
 
   get(productId) :any {
-    return this.db.object('/products/' + productId).valueChanges();
+    return this.db.object('/products/' + productId).snapshotChanges();
   }
 
   update(productId, product) : any {
