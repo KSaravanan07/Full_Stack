@@ -32,6 +32,7 @@ import { ProductService } from './product.service';
 import { CustomFormsModule } from 'ng2-validation';
 import { ProductFilterComponent } from './products/product-filter/product-filter.component';
 import { ProductCardComponent } from './product-card/product-card.component';
+import { OrderService } from './order.service';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,7 @@ import { ProductCardComponent } from './product-card/product-card.component';
       {path: 'products', component: ProductsComponent},
       {path: 'shopping-cart', component: ShoppingCartComponent},
       {path: 'login', component: LoginComponent},
-      {path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuardService]},
+      {path: 'order-success/:id', component: OrderSuccessComponent, canActivate: [AuthGuardService]},
       {path: 'my/orders', component: MyOrdersComponent, canActivate: [AuthGuardService]},
       {path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuardService]},
       {path: 'admin/orders', component: AdminOrdersComponent, canActivate: [AuthGuardService, AdminAuthGuardService]},
@@ -73,7 +74,7 @@ import { ProductCardComponent } from './product-card/product-card.component';
       {path: 'admin/products', component: AdminProductsComponent, canActivate: [AuthGuardService, AdminAuthGuardService]},
     ])
   ],
-  providers: [AuthService, AuthGuardService, UserService, AdminAuthGuardService, CategoryService, ProductService, ShoppingCartComponent],
+  providers: [AuthService, AuthGuardService, UserService, AdminAuthGuardService, CategoryService, ProductService, ShoppingCartComponent, OrderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
